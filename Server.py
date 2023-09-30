@@ -11,7 +11,8 @@ def start():
     try:
         s.bind((host, port))
         s.listen(5)
-        print(f'               {GREEN}      TheAllSeeingEye   {RESET} \n')
+        print(f'               {GREEN}      Reverse-CLI   {RESET} \n')
+        print(f'{GREEN}Developer: Morta1DieTw1Ce /n{RESET}')
         print(f'{GREEN}[*] Listening on {host}:{port}{RESET} ')
     except Exception as e:
         print(f'{RED}Error: Reverse shell not working! {e}{RESET}')
