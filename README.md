@@ -15,7 +15,7 @@ No Claim of Ownership: Licensee shall not claim ownership of the Tool or present
 
 No Warranty: The Tool is provided "as-is" without any warranty, express or implied. Abhinav Prasad disclaims all warranties regarding the Tool's performance or fitness for a particular purpose.
 
-Contact Information: For inquiries, issues, or feedback related to the Tool, Licensee may contact Morta1DieTw1Ce via email at pycodeinsights@gmail.com.
+Contact Information: For inquiries, issues, or feedback related to the Tool, Licensee may contact Morta1DieTw1Ce via email at Morta1DieTw1Ce@gmail.com
 
 Termination: This License may be terminated by Morta1DieTw1Ce at any time if Licensee breaches any of its terms. Upon termination, Licensee must cease using the Tool.
 
@@ -27,4 +27,4 @@ By using the Tool, Licensee agrees to be bound by the terms of this License.
 
 Original Creator: Morta1DieTw1Ce
 
-Morta1DieTw1Ce Email: pycodeinsights@gmail.com
+Morta1DieTw1Ce Email: Morta1DieTw1Ce@gmail.com
