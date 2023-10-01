@@ -31,7 +31,7 @@ def start():
             continue
 
         print(f'{GREEN}     Options    {RESET}\n ')
-        print(f'{GREEN}[*] ls\n[*] netstat\n[*] ifconfig\n[*] ps\n[*] df\n[*] whoami\n[*]cat\n[*]file[*]exit\n{RESET}')
+        print(f'{GREEN}[*] ls\n[*] netstat\n[*] ifconfig\n[*] ps\n[*] df\n[*] whoami\n[*]cat\n[*]file\n[*]exit\n{RESET}')
         while True:
             cmd = input(f'{GREEN}>>> {RESET}')
 
