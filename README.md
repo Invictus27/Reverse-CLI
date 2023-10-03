@@ -5,7 +5,7 @@ and ethical hackers
 
 # Version
 
-Version 1.0 - September 2023
+Version 1.2 - September 2023
 
 # Installation
 
