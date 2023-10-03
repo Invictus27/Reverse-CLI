@@ -23,10 +23,10 @@ def start():
 
     while True:
         conn, addr = s.accept()
-        print(f'{GREEN}{conn} has connected\n\n{RESET}')
+        print(f'{GREEN}{addr} has connected\n\n{RESET}')
         client_key = conn.recv(1024).decode()
         if client_key not in keys:
-            print(f'{RED}Authentication failed for {conn}{RESET}')
+            print(f'{RED}Authentication failed for {addr}{RESET}')
             conn.close()
             continue
 
