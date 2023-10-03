@@ -5,7 +5,11 @@ and ethical hackers
 
 # Version
 
-Version 1.2 - September 2023
+Version 1.2 - October 2023
+
+# Disclaimer
+
+Do not use it for unethical or malicious purposes the creator does not support any kind of malicious or illegal activity
 
 # Installation
 
