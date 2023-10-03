@@ -8,7 +8,7 @@ def start():
 
     host = '0.0.0.0'
     port = 8080
-    keys = ['secretkey1', 'secretkey2', 'secretkey3'] 
+    keys = ['secretkey1', 'secretkey2', 'secretkey3']
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
@@ -23,12 +23,13 @@ def start():
 
     while True:
         conn, addr = s.accept()
-        print(f'{GREEN}{addr} has connected\n\n{RESET}')
         client_key = conn.recv(1024).decode()
         if client_key not in keys:
-            print(f'{RED}Authentication failed for {addr}{RESET}')
             conn.close()
             continue
+        else:
+            print(f'{GREEN}{addr} has been connected{RESET}')
+            conn.sendall('Authentication successful'.encode())
 
         print(f'{GREEN}     Options    {RESET}\n ')
         print(f'{GREEN}[*] ls\n[*] netstat\n[*] ifconfig\n[*] ps\n[*] df\n[*] whoami\n[*]cat\n[*]file\n[*]exit\n{RESET}')
@@ -40,19 +41,24 @@ def start():
                 break
             elif cmd in ['ls', 'netstat', 'ifconfig', 'ps', 'df', 'whoami']:
                 cmd = shlex.quote(cmd)
-                conn.sendall(cmd.encode())
-                response = conn.recv(1024).decode()
-                print(response)
-            elif cmd.startswith('cat '):
+                try:
+                    conn.sendall(cmd.encode())
+                    response = conn.recv(1024).decode()
+                    print(response)
+                except Exception as e:
+                    print(f'{RED}Error sending/receiving data: {e}{RESET}')
+                    conn.close()
+                    break
+            elif cmd.startswith('cat ') or cmd.startswith('file '):
                 cmd = shlex.quote(cmd)
-                conn.sendall(cmd.encode())
-                response = conn.recv(1024).decode()
-                print(response)
-            elif cmd.startswith('file '):
-                cmd = shlex.quote(cmd)
-                conn.sendall(cmd.encode())
-                response = conn.recv(1024).decode()
-                print(response)
+                try:
+                    conn.sendall(cmd.encode())
+                    response = conn.recv(1024).decode()
+                    print(response)
+                except Exception as e:
+                    print(f'{RED}Error sending/receiving data: {e}{RESET}')
+                    conn.close()
+                    break
             else:
                 print(f'{RED}Invalid command!{RESET}')
 
