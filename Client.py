@@ -22,7 +22,7 @@ def cli():
             cmd = s_client.recv(1024).decode()
             if cmd.lower() == 'exit':
                 break
-            elif cmd.lower() in ['ls', 'netstat', 'ifconfig', 'ps', 'df', 'whoami']:
+            elif cmd.lower() in ['ls', 'netstat', 'ifconfig', 'ps', 'df', 'whoami','pwd']:
                 try:
                     cmd = shlex.quote(cmd)
                     shell = os.popen(cmd).read()
