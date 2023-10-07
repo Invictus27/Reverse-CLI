@@ -39,7 +39,7 @@ def start():
             if cmd == 'exit':
                 conn.close()
                 break
-            elif cmd in ['ls', 'netstat', 'ifconfig', 'ps', 'df', 'whoami']:
+            elif cmd in ['ls', 'netstat', 'ifconfig', 'ps', 'df', 'whoami','pwd']:
                 cmd = shlex.quote(cmd)
                 try:
                     conn.sendall(cmd.encode())
