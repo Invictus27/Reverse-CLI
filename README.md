@@ -13,13 +13,10 @@ Do not use it for unethical or malicious purposes the creator does not support a
 
 # Installation
 
-1.git clone https://github.com/Morta1DieTw1Ce/Reverse-CLI/
+1.git clone https://github.com/Invictus27/Reverse-CLI/
 2.cd Reverse-CLI
 
 # Creator
 
-Original Creator: Morta1DieTw1Ce
+Original Creator: Invictus27
 
-# Contact
-
-Morta1DieTw1Ce Email: Morta1DieTw1Ce@gmail.com
